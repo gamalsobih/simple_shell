@@ -9,9 +9,9 @@ int main(int ac, char **argv){
 
    /* declaring void variables */
   (void)ac; (void)argv;
-
+int x=0;
     /* create an infinite loop */
-    while (1){
+    while (x==1){
             printf("%s\n", "gamalwhile");
 
       printf("%s", prompt);
