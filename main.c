@@ -11,7 +11,7 @@ int main(int ac, char **argv){
   (void)ac; (void)argv;
 int x=0;
     /* create an infinite loop */
-    while (x==1){
+    while (x==0){
             printf("%s\n", "gamalwhile");
 
       printf("%s", prompt);
