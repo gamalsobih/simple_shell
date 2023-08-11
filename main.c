@@ -15,8 +15,7 @@ int main(int ac, char **argv){
       printf("%s\n", lineptr);
 
       /* free up allocated memory */
-      free(lineptr);    
     }
-
+      free(lineptr);    
   return (0);
 }
