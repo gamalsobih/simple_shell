@@ -6,7 +6,6 @@ int main(int ac, char **argv){
     size_t n = 0;
     ssize_t nchars_read;
     const char *delim = " \n"
-    lineptr_copy = malloc(sizeof(char) * nchars_read);
     if (lineptr_copy== NULL){
         perror("tsh: memory allocation error");
         return (-1);
@@ -19,6 +18,7 @@ int main(int ac, char **argv){
     while (1) {
         printf("%s", prompt);
         nchars_read = getline(&lineptr, &n, stdin);
+         lineptr_copy = malloc(sizeof(char) * nchars_read);
         strcpy(lineptr_copy, lineptr);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
