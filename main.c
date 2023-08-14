@@ -12,7 +12,7 @@ int main(int ac, char **argv){
     }
 
     /* declaring void variables */
-    (void)ac; (void)argv;
+    (void)ac; (void)argv;(void)delim;
 
     /* Create a loop for the shell's prompt */
     while (1) {
