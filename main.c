@@ -1,4 +1,4 @@
-
+#include"main.h"
 int main(void)
 {
     char *full_command = NULL, *copy_command = NULL;
