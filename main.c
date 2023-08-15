@@ -44,7 +44,7 @@ int main(void)
             token = strtok(NULL, delim);
         }
         num_tokens++;
-        // printf(">>>>> %d \n", num_tokens);
+        printf(">>>>> %d \n", num_tokens);
 
         /* use malloc to allocate enough space for the pointer to the argument variables */
         argv = malloc(sizeof(char *) * num_tokens);
