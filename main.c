@@ -13,7 +13,6 @@ int main(void)
     // strcpy(command_copy, full_command);
     /* print a prompt for the user to type something */
     printf("$ ");
-
     /* get the string that the user types in and pass it to full_command */
     nchars_read = getline(&full_command, &n, stdin);
 
