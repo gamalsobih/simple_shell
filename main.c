@@ -10,7 +10,6 @@ int main(void)
     int i = 0; // x = 0;
     int num_tokens = 0;
 
-    // strcpy(command_copy, full_command);
     /* print a prompt for the user to type something */
     printf("$ ");
     /* get the string that the user types in and pass it to full_command */
@@ -43,7 +42,6 @@ int main(void)
             token = strtok(NULL, delim);
         }
         num_tokens++;
-        printf(">>>>> %d \n", num_tokens);
 
         /* use malloc to allocate enough space for the pointer to the argument variables */
         argv = malloc(sizeof(char *) * num_tokens);
@@ -54,7 +52,6 @@ int main(void)
             argv[i] = malloc(sizeof(char) * strlen(token));
             strcpy(argv[i], token);
 
-           printf(">>>>> %s \n", argv[i]);
             token = strtok(NULL, delim);
         }
         argv[i] = NULL;
