@@ -1,52 +1,52 @@
-#include"main.h"
-int main(void)
-{
-    char *full_command = NULL, *copy_command = NULL;
+#include "main.h"
+
+int main(int ac, char **argv){
+    char *prompt = "(mysimple_shell) $ ";
+    char *lineptr = NULL, *lineptr_copy = NULL;
     size_t n = 0;
-    ssize_t nchars_read; /* number of characters the user types */
-    char *token;
+    ssize_t nchars_read;
     const char *delim = " \n";
-    char **argv;
-    int i = 0; // x = 0;
     int num_tokens = 0;
+    char *token;
+    int i;
 
-    /* print a prompt for the user to type something */
-    printf("$ ");
-    /* get the string that the user types in and pass it to full_command */
-    nchars_read = getline(&full_command, &n, stdin);
+    /* declaring void variables */
+    (void)ac;
 
-    /* let's allocate space to store the characters read by getline */
-    copy_command = malloc(sizeof(char) * nchars_read);
+    /* Create a loop for the shell's prompt */
+    while (1) {
+        printf("%s", prompt);
+        nchars_read = getline(&lineptr, &n, stdin);
+        /* check if the getline function failed or reached EOF or user use CTRL + D */ 
+        if (nchars_read == -1){
+            printf("Exiting shell....\n");
+            return (-1);
+        }
 
-    if (copy_command == NULL){
-        perror("tsh: memory allocation error");
-        return (-1);
-    }
+        /* allocate space for a copy of the lineptr */
+        lineptr_copy = malloc(sizeof(char) * nchars_read);
+        if (lineptr_copy== NULL){
+            perror("tsh: memory allocation error");
+            return (-1);
+        }
+        /* copy lineptr to lineptr_copy */
+        strcpy(lineptr_copy, lineptr);
 
-    /* make a copy of the command that was typed */
-    strcpy(copy_command, full_command);
+        /********** split the string (lineptr) into an array of words ********/
+        /* calculate the total number of tokens */
+        token = strtok(lineptr, delim);
 
-    /* check if the getline function failed or reached EOF or user use CTRL + D */
-    if (nchars_read == -1){
-        printf("Exiting shell....\n");
-        return (-1);
-    }
-    else {
-
-        /* split the string (full_command) into an array of words */
-        token = strtok(full_command, delim);
-
-        /* allocate space to store the variable arguments but before then determine how many tokens are there*/
         while (token != NULL){
             num_tokens++;
             token = strtok(NULL, delim);
         }
         num_tokens++;
 
-        /* use malloc to allocate enough space for the pointer to the argument variables */
+        /* Allocate space to hold the array of strings */
         argv = malloc(sizeof(char *) * num_tokens);
 
-        token = strtok(copy_command, delim);
+        /* Store each token in the argv array */
+        token = strtok(lineptr_copy, delim);
 
         for (i = 0; token != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(token));
@@ -56,13 +56,15 @@ int main(void)
         }
         argv[i] = NULL;
 
-        /* execute the commands with execve */
+        /* execute the command */
+        execmd(argv);
+
+    } 
 
 
-        free(argv);
-        free(full_command);
-        free(copy_command);
-    }
+    /* free up allocated memory */ 
+    free(lineptr_copy);
+    free(lineptr);
 
     return (0);
 }
