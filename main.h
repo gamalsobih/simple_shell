@@ -3,4 +3,4 @@
 #include <unistd.h>
 #include <string.h>
 void execmd(char **argv);
-
+char *get_location(char *command);
