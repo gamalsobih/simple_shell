@@ -14,9 +14,12 @@ int main(int ac, char **argv){
     (void)ac;
 
     /* Create a loop for the shell's prompt */
-    while (1) {
-        printf("%s", prompt);
-        nchars_read = getline(&lineptr, &n, stdin);
+      while (1) {
+    
+
+       printf("%s", prompt);
+	 fork(); 
+       nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
             printf("Exiting shell....\n");
