@@ -9,7 +9,8 @@ int main(int ac, char **argv){
     int num_tokens = 0;
     char *token;
     int i;
-
+    pid_t pid;
+    int status;
     /* declaring void variables */
     (void)ac;
 
@@ -60,8 +61,7 @@ int main(int ac, char **argv){
 
         /* execute the command */
         
-         pid_t pid;
-         int status;
+
          pid = fork();
          if (pid == 0) {
              execmd(argv);
