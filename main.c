@@ -18,7 +18,6 @@ int main(int ac, char **argv){
     
 
        printf("%s", prompt);
-	 fork(); 
        nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
@@ -60,7 +59,19 @@ int main(int ac, char **argv){
         argv[i] = NULL;
 
         /* execute the command */
-        execmd(argv);
+        
+         pid_t pid;
+         int status;
+         pid = fork();
+         if (pid == 0) {
+             execmd(argv);
+             exit(0);
+         } else if (pid < 0) {
+             perror("fork failed");
+             exit(1);
+         } else {
+             wait(&status);
+         }
 
     } 
 
