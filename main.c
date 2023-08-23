@@ -1,6 +1,6 @@
 #include "main.h"
 void exitcmd(char **argv){
-        char *status = NULL,
+        int status,
 
         if (argv[1]){
             status =atoi(argv[1]);
