@@ -1,6 +1,7 @@
 #include "main.h"
 
-void execmd(char **argv){
+void execmd(char **argv)
+{
     char *command = NULL, *actual_command = NULL;
 
     if (strcmp(argv[0],"exit")!=0){
