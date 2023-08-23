@@ -76,7 +76,7 @@ int main(int ac, char **argv){
     } 
 
 
-    /* free up allocated memory */ 
+    /* free up allocated memor*/	
     free(lineptr_copy);
     free(lineptr);
 
