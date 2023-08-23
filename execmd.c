@@ -1,12 +1,12 @@
 #include "main.h"
 
-void execmd(char **argv)
-{
+void execmd(char **argv){
     char *command = NULL, *actual_command = NULL;
 
-    if (strcmp(argv[0],"exit")!=0){
+    if (argv){
         /* get the command */
         command = argv[0];
+
         /* generate the path to this command before passing it to execve */
         actual_command = get_location(command);
 
@@ -15,10 +15,5 @@ void execmd(char **argv)
             perror("Error:");
         }
     }
-    if (strcmp(argv[0],"exit")==0)
-    {
-        printf("%s","exit");
-    }
 
 }
-
