@@ -65,6 +65,8 @@ int main(int ac, char **argv){
         {
             printf("%s","exit");
             exit(0);
+            printf("%s","exit after");
+
         }
 
 
