@@ -1,14 +1,5 @@
 #include "main.h"
-void exitcmd(char **argv){
-        int status,
 
-        if (argv[1]){
-            status =atoi(argv[1]);
-            exit(status);
-        }else{
-        exit(0);
-        }
-    }
 int main(int ac, char **argv){
     char *prompt = "(my-simple-shell) $ ";
     char *lineptr = NULL, *lineptr_copy = NULL;
