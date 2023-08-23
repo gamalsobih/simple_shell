@@ -63,10 +63,12 @@ int main(int ac, char **argv){
         
           if (strcmp(argv[0],"exit")==0)
         {
-            printf("%s","exit");
+            if(argv[1]!=NULL)
+            {
+            exit(argv[1]);
+            }else{
             exit(0);
-            printf("%s","exit after");
-
+            }
         }
 
 
