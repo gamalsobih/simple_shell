@@ -61,7 +61,7 @@ int main(int ac, char **argv){
 
         /* execute the command */
         
-          if (_strcmp(argv[0],"exit")==0)
+          if (strcmp(argv[0],"exit")==0)
         {
             printf("%s","exit");
             exit(0);
