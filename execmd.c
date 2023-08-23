@@ -3,7 +3,7 @@
 void execmd(char **argv){
     char *command = NULL, *actual_command = NULL;
 
-    if (argv[0]!="exit"){
+    if (argv){
         /* get the command */
         command = argv[0];
 
@@ -15,8 +15,6 @@ void execmd(char **argv){
             perror("Error:");
         }
     }
-    if (argv[0] == "exit")
-    {printf ("%s","this is exit")}
 
 }
 
