@@ -14,7 +14,7 @@ void execmd(char **argv){
         if(strcmp(argv[0],"env")==0){
             envo();
         }
-            else(execve(actual_command, argv, NULL) == -1){
+            else if(execve(actual_command, argv, NULL) == -1){
             printf("./shell: No such file or directory \n");
             /* perror("Error:");*/
         }
