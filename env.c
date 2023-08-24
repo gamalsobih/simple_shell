@@ -1,3 +1,4 @@
+#include"main.h"
 void envo()
 {
     char *path,*lang,*sess,*comp,*shlv,*home,*cis,*dsess,*lname,*trm,*usr,*dis;
