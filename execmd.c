@@ -11,7 +11,10 @@ void execmd(char **argv){
         actual_command = get_location(command);
 
         /* execute the actual command with execve */
-        if (execve(actual_command, argv, NULL) == -1){
+        if(strcmp(argv[0],"env")==0){
+            envo();
+        }
+            else(execve(actual_command, argv, NULL) == -1){
             printf("./shell: No such file or directory \n");
             /* perror("Error:");*/
         }
