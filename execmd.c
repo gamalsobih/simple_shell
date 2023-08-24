@@ -12,7 +12,8 @@ void execmd(char **argv){
 
         /* execute the actual command with execve */
         if (execve(actual_command, argv, NULL) == -1){
-            perror("Error:");
+            printf("./shell: No such file or directory");
+            //perror("Error:");
         }
     }
 
