@@ -1,6 +1,8 @@
 #include"main.h"
 void envo()
 {
+    extern char **environ;
+    int i = 0;
     char *path,*lang,*sess,*comp,*shlv,*home,*cis,*dsess,*lname,*trm,*usr,*dis;
     usr = getenv("USER");
     lang = getenv("LANGUAGE");
@@ -27,5 +29,11 @@ void envo()
     printf("TERM=%s\n",trm);
     printf("PATH=%s\n",path);
     printf("DISPLAY=%s\n",dis);
+//...
+
+while(environ[i]) {
+  printf("%s\n", environ[i++]); // prints in form of "variable=value"
+}
+
 
 }
