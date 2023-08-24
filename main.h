@@ -9,3 +9,4 @@
 void execmd(char **argv);
 char *get_location(char *command);
 void exitcmd(char **argv);
+void env_shell();
