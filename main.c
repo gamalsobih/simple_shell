@@ -22,6 +22,8 @@ int main(int ac, char **argv){
        nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
+            
+            exit(0);
             return (-1);
         }
 
