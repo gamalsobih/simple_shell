@@ -29,7 +29,6 @@ void envo()
     printf("TERM=%s\n",trm);
     printf("PATH=%s\n",path);
     printf("DISPLAY=%s\n",dis);
-//...
 
 while(environ[i]) {
   printf("%s\n", environ[i++]); // prints in form of "variable=value"
