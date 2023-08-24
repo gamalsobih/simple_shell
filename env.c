@@ -31,7 +31,7 @@ void envo()
     printf("DISPLAY=%s\n",dis);
 
 while(environ[i]) {
-  printf("%s\n", environ[i++]); // prints in form of "variable=value"
+  printf("%s\n", environ[i++]); /* prints in form of "variable=value"*/
 }
 
 
