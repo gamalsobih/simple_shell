@@ -5,7 +5,7 @@ int main(int ac, char **argv){
     char *lineptr = NULL, *lineptr_copy = NULL;
     size_t n = 0;
     ssize_t nchars_read;
-    const char *delim = " \n";
+   /* const char *delim = " \n";*/
     int num_tokens = 0;
     char *token;
     int i;
@@ -47,11 +47,11 @@ int main(int ac, char **argv){
 
         /********** split the string (lineptr) into an array of words ********/
         /* calculate the total number of tokens */
-        token = strtok(lineptr, delim);
+        token = strtok(lineptr, " \n");
 
         while (token != NULL){
             num_tokens++;
-            token = strtok(NULL, delim);
+            token = strtok(NULL, " \n");
         }
         num_tokens++;
 
@@ -59,11 +59,11 @@ int main(int ac, char **argv){
         argv = malloc(sizeof(char *) * num_tokens);
 
         /* Store each token in the argv array */
-        token = strtok(lineptr_copy, delim);
+        token = strtok(lineptr_copy, " \n");
 
         for (i = 0; token != NULL; i++){
             argv[i] = strdup(token);
-            token = strtok(NULL, delim);
+            token = strtok(NULL, " \n");
         }
         argv[i] = NULL;
 
