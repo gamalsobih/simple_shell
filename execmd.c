@@ -15,7 +15,7 @@ void execmd(char **argv){
             envo();
         }
             else if(execve(actual_command, argv, NULL) == -1){
-                printf("gamal\n")
+                printf("gamal\n");
             perror("./shell");
         }
 
