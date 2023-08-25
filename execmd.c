@@ -16,7 +16,6 @@ void execmd(char **argv){
         }
             else if(execve(actual_command, argv, NULL) == -1){
             perror("./shell");
-            /* perror("Error:");*/
         }
 
     }
