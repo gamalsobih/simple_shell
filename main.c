@@ -83,6 +83,10 @@ int main(int ac, char **argv){
     /* free up allocated memor*/	
     free(lineptr_copy);
     free(lineptr);
+    for (i = 0; token != NULL; i++){
+    free(argv[i]);
+    }
+
     free(argv);
 
     return (0);
