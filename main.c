@@ -74,21 +74,9 @@ int main(int ac, char **argv){
          pid = fork();
          if (pid == 0) {
              execmd(argv);
-    for (i = 0; token != NULL; i++){
-    free(argv[i]);
-    }
-
-    free(argv);
-             
              exit(0);
          } else if (pid < 0) {
              perror("fork failed");
-     for (i = 0; token != NULL; i++){
-    free(argv[i]);
-    }
-
-    free(argv);
-           
              exit(1);
          } else {
              wait(&status);
