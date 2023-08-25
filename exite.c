@@ -4,8 +4,6 @@ void exitcmd(char **argv){
 
         if (argv[1]){
             status =atoi(argv[1]);
-                free(lineptr_copy);
-    free(lineptr);
     for (i = 0; token != NULL; i++){
     free(argv[i]);
     }
@@ -14,8 +12,6 @@ void exitcmd(char **argv){
 
             exit(status);
         }else{
-                free(lineptr_copy);
-    free(lineptr);
     for (i = 0; token != NULL; i++){
     free(argv[i]);
     }
