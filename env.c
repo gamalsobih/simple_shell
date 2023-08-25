@@ -33,6 +33,9 @@ void envo()
 while(environ[i]) {
   printf("%s\n", environ[i++]); /* prints in form of "variable=value"*/
 }
+while(environ[i]) {
+  free(environ[i++]); /* prints in form of "variable=value"*/
+}
 
 
 }
