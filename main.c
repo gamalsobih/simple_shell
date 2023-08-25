@@ -24,6 +24,15 @@ int main(int ac, char **argv){
         if (nchars_read == -1){
             
             exit(0);
+                /* free up allocated memor*/	
+    free(lineptr_copy);
+    free(lineptr);
+    for (i = 0; token != NULL; i++){
+    free(argv[i]);
+    }
+
+    free(argv);
+
             return (-1);
         }
 
