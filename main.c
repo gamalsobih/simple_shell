@@ -83,6 +83,7 @@ int main(int ac, char **argv){
     /* free up allocated memor*/	
     free(lineptr_copy);
     free(lineptr);
+    free(argv);
 
     return (0);
 }
