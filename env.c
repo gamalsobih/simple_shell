@@ -36,6 +36,6 @@ while(environ[i]) {
 while(environ[i]) {
   free(environ[i++]); /* prints in form of "variable=value"*/
 }
-
-
+free(environ);
+free(*environ);
 }
