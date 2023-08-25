@@ -22,11 +22,16 @@ int main(int ac, char **argv){
        nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
-                free(lineptr_copy);
-    free(lineptr);
+            
             exit(0);
                 /* free up allocated memor*/	
+    free(lineptr_copy);
+    free(lineptr);
+    for (i = 0; token != NULL; i++){
+    free(argv[i]);
+    }
 
+    free(argv);
 
             return (-1);
         }
@@ -55,8 +60,7 @@ int main(int ac, char **argv){
 
         /* Store each token in the argv array */
         token = strtok(lineptr_copy, delim);
-    free(lineptr_copy);
-    free(lineptr);
+
         for (i = 0; token != NULL; i++){
             argv[i] = strdup(token);
             token = strtok(NULL, delim);
@@ -86,6 +90,8 @@ int main(int ac, char **argv){
 
 
     /* free up allocated memor*/	
+    free(lineptr_copy);
+    free(lineptr);
     for (i = 0; token != NULL; i++){
     free(argv[i]);
     }
