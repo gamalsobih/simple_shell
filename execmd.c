@@ -18,8 +18,6 @@ void execmd(char **argv){
             printf("./shell: No such file or directory \n");
             /* perror("Error:");*/
         }
-            free(command);
-    free(actual_command);
 
     }
 
