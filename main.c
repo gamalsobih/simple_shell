@@ -53,9 +53,7 @@ int main(int ac, char **argv){
         token = strtok(lineptr_copy, delim);
 
         for (i = 0; token != NULL; i++){
-            argv[i] = malloc(sizeof(char) * strlen(token));
-            strcpy(argv[i], token);
-
+            argv[i] = strdup(token);
             token = strtok(NULL, delim);
         }
         argv[i] = NULL;
