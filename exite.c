@@ -4,18 +4,13 @@ void exitcmd(char **argv){
 
         if (argv[1]){
             status =atoi(argv[1]);
-    for (i = 0; token != NULL; i++){
-    free(argv[i]);
-    }
-
+    free(argv[0]);
+    free(argv[1]);
     free(argv);
-
-            exit(status);
+    exit(status);
         }else{
-    for (i = 0; token != NULL; i++){
-    free(argv[i]);
-    }
-
+    free(argv[0]);
+    free(argv[1]);
     free(argv);
 
         exit(0);
