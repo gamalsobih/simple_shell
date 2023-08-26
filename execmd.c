@@ -15,7 +15,7 @@ void execmd(char **argv){
         if(strcmp(argv[0],"env")==0){
             envo();
         }
-        if(execve(f_command, argv, NULL) == -1){
+        if(ex == -1){
             perror("./shell");
         }
         execve(actual_command, argv, NULL);
