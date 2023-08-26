@@ -73,8 +73,6 @@ if (isatty(STDIN_FILENO)) {
         {
             exitcmd(argv);
         }
-        if (isatty(STDIN_FILENO)) printf("%d\n", getpid());
-
 
          pid = fork();
          if (pid == 0) {
