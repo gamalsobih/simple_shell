@@ -18,7 +18,7 @@ int main(int ac, char **argv){
       while (1) {
     
 if (isatty(STDIN_FILENO)) {}else{
-       printf("%s", prompt);
+       printf("%s", prompt);}
        nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */ 
         if (nchars_read == -1){
@@ -99,4 +99,4 @@ if (isatty(STDIN_FILENO)) {}else{
 
     free(argv);
     return (0);
-      }}
+      }
