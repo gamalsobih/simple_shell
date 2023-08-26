@@ -1,7 +1,7 @@
 #include "main.h"
 
 void execmd(char **argv){
-    char *command = NULL, *actual_command = NULL, *f_command = NULL;
+    char *command = NULL, *actual_command = NULL;
 
     if (argv){
         /* get the command */
