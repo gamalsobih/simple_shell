@@ -33,8 +33,6 @@ char *get_location(char *command){
 
                 /* free up allocated memory before returning your file_path */
                 free(path_copy);
-                free(path_token);
-                free(path);
                 return (file_path);
             }
             else{
@@ -51,19 +49,13 @@ char *get_location(char *command){
         /* before we exit without luck, let's see if the command itself is a file_path that exists */
         if (stat(command, &buffer) == 0)
         {
-        free(path_token);
-        free(path);
-        free(path_copy);
-        free(file_path);
         return (command);
         }
 
-        free(path);
 
         return (NULL);
 
     }
-        free(path);
 
 
     return (NULL);
