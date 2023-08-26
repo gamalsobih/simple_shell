@@ -6,8 +6,6 @@ void execmd(char **argv){
     if (argv){
         /* get the command */
         command = argv[0];
-     /*   f_command = argv[0];*/
-      /*  strcat(f_command, ".txt");*/
 
         /* generate the path to this command before passing it to execve */
         actual_command = get_location(command);
@@ -17,7 +15,6 @@ void execmd(char **argv){
             envo();
         }
             else if(execve(actual_command, argv, NULL) == -1){
-            execve(f_command, argv, NULL);
                 perror("./shell");
         }
 
