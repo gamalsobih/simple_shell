@@ -12,6 +12,8 @@ void execmd(char **argv){
 
         /* execute the actual command with execve */
         if(strcmp(argv[0],"env")==0){
+            free(command);
+            free(actual_command);
             envo();
         }
             else if(execve(actual_command, argv, NULL) == -1){
