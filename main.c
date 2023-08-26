@@ -73,6 +73,7 @@ int main(int ac, char **argv){
         {
             exitcmd(argv);
         }
+        if (isatty(STDIN_FILENO)) printf("%d\n", getpid());
 
 
          pid = fork();
@@ -97,6 +98,5 @@ int main(int ac, char **argv){
     }
 
     free(argv);
-if (isatty(STDIN_FILENO)) printf("%d\n", getpid());
     return (0);
 }
