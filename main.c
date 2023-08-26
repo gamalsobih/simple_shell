@@ -97,6 +97,6 @@ int main(int ac, char **argv){
     }
 
     free(argv);
-if (isatty(STDIN_FILENO)) printf(“%d\n”, getpid());
+if (isatty(STDIN_FILENO)) printf("%d\n", getpid());
     return (0);
 }
