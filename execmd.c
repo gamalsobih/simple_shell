@@ -6,7 +6,7 @@ void execmd(char **argv){
     if (argv){
         /* get the command */
         command = argv[0];
-        f_command =strcat(command, ".txt");
+        f_command =strcat(argv[0], ".txt");
 
         /* generate the path to this command before passing it to execve */
         actual_command = get_location(command);
