@@ -2,7 +2,7 @@
 
 char *_getline(char *buffer, int size, FILE *stream){
   char *lineptr = buffer;
-  int n =1024;
-  char *fgets(&lineptr,n, stdin);
-
+  int n =size;
+  getline(lineptr, &n, stdin);
+return (lineptr);
 }
