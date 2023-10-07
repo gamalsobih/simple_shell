@@ -11,4 +11,4 @@ void execmd(char **argv);
 char *get_location(char *command);
 void exitcmd(char **argv);
 void envo();
-char *_getline(char *buffer, int size, FILE *stream);
+char *_getline(char *buffer, size_t  size, FILE *stream);
