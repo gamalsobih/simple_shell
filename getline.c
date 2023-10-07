@@ -1,8 +1,9 @@
 #include "main.h"
 
-char *_getline(char *buffer, size_t *size, FILE *stream){
+ssize_t _getline(char *buffer, size_t *size, FILE *stream){
+  ssize_t s;
   char *lineptr = buffer;
   size_t  n = *size;
-  getline(&lineptr, &n, stream);
-return (lineptr);
+ s = getline(&lineptr, &n, stream);
+return (s);
 }
