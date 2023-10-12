@@ -14,6 +14,8 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream) {
             *n *= 2;
             *lineptr = realloc(*lineptr, *n);
             if (*lineptr == NULL) {
+                          printf("%s", lineptr);
+
                 return -1;
             }
         }
