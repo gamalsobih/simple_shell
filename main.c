@@ -62,7 +62,7 @@ int main(int ac, char **argv){
 
         for (i = 0; token != NULL; i++){
             argv[i] = strdup(token);
-            token = strtok(NULL, " \n");
+            token = _strtok(NULL, " \n");
         }
         argv[i] = NULL;
 
