@@ -7,6 +7,21 @@
  * @n: size of line
  * @j: size of buffer
  */
+
+char *_strcpy(char *dest, char *src)
+{
+
+	size_t a;
+
+	for (a = 0; src[a] != '\0'; a++)
+	{
+		dest[a] = src[a];
+	}
+	dest[a] = '\0';
+
+	return (dest);
+}
+
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 {
 
