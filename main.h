@@ -14,3 +14,4 @@ char *get_location(char *command);
 void exitcmd(char **argv);
 void envo();
 ssize_t _getline(char **buffer, size_t *size, FILE *stream);
+char *_strtok(char *str, const char *delim);
