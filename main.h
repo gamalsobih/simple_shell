@@ -6,6 +6,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <errno.h>
+#define BUFSIZE 1024
+
 
 void execmd(char **argv);
 char *get_location(char *command);
