@@ -103,7 +103,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	ssize_t retval;
 	char *buffer;
 	char t = 'z';
-
+	printf("%s", "$");
 	if (input == 0)
 		fflush(stream);
 	else
