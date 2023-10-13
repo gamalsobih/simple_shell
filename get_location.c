@@ -14,7 +14,7 @@ char *get_location(char *command){
         command_length = strlen(command);
 
         /* Let's break down the path variable and get all the directories available*/
-        path_token = strtok(path_copy, ":");
+        path_token = _strtok(path_copy, ":");
 
         while(path_token != NULL){
             /* Get the length of the directory*/
@@ -38,7 +38,7 @@ char *get_location(char *command){
             else{
                 /* free up the file_path memory so we can check for another path*/
                 free(file_path);
-                path_token = strtok(NULL, ":");
+                path_token = _strtok(NULL, ":");
 
             }
 
