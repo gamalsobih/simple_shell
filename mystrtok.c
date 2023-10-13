@@ -1,6 +1,6 @@
 #include "main.h"
 
-char *my_strtok(char *str, const char *delim) {
+char *_strtok(char *str, const char *delim) {
   // Declare a static variable to store the current position in the string
   static char *pos;
   // Declare a variable to store the pointer to the token
