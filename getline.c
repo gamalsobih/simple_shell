@@ -7,6 +7,16 @@
  * @n: size of line
  * @j: size of buffer
  */
+void _memcpy(void *newptr, const void *ptr, unsigned int size)
+{
+	char *char_ptr = (char *)ptr;
+	char *char_newptr = (char *)newptr;
+	unsigned int i;
+
+	for (i = 0; i < size; i++)
+		char_newptr[i] = char_ptr[i];
+}
+
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
