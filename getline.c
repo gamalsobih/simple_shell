@@ -27,7 +27,7 @@ int _getline(char **lineptr, size_t *n, FILE *stream) {
 
     /* Loop until a newline character or the end of file is encountered*/
     while (1) {
-        /* Get the next character from the stream/
+        /* Get the next character from the stream*/
         int c = getc(stream);
 
         /* Check for end of file or error*/
