@@ -16,7 +16,7 @@ int _getline(char **lineptr, size_t *n, FILE *stream) {
 
     /* Initialize the buffer and the size if they are NULL or zero*/
     if (*lineptr == NULL || *n == 0) {
-        *lineptr = malloc(128); // Allocate an initial buffer of 128 bytes
+        *lineptr = malloc(128); /* Allocate an initial buffer of 128 bytes */
         if (*lineptr == NULL) {
             return -1; /* Return -1 if memory allocation fails*/
         }
