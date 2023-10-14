@@ -28,7 +28,7 @@ char *_strtok(char *str, const char *delim) {
     *pos = '\0';
     pos++;
   }
-  // Return token
+  /* Return token */
   return token;
 }
 
