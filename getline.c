@@ -8,6 +8,8 @@
  Returns: the number of characters read, or -1 if an error occurs or the end of file is reached */
 int _getline(char **lineptr, size_t *n, FILE *stream) {
     /* Check for invalid parameters*/
+     size_t count = 0;
+
     if (lineptr == NULL || n == NULL || stream == NULL) {
         return -1;
     }
@@ -22,7 +24,6 @@ int _getline(char **lineptr, size_t *n, FILE *stream) {
     }
 
     /* Initialize a counter for the number of characters read*/
-    int count = 0;
 
     /* Loop until a newline character or the end of file is encountered*/
     while (1) {
