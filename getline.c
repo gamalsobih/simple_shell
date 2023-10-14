@@ -1,140 +1,70 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
- * bring_line - assigns the line var for get_line
- * @lineptr: Buffer that store the input str
- * @buffer: str that is been called to line
- * @n: size of line
- * @j: size of buffer
- */
-void _memcpy(void *newptr, const void *ptr, unsigned int size)
-{
-	char *char_ptr = (char *)ptr;
-	char *char_newptr = (char *)newptr;
-	unsigned int i;
+// A function that reads an entire line from a stream
+// Parameters: lineptr - a pointer to a buffer that will store the line
+//             n - a pointer to a size variable that will hold the buffer size
+//             stream - a file pointer that will provide the input stream
+// Returns: the number of characters read, or -1 if an error occurs or the end of file is reached
+int _getline(char **lineptr, size_t *n, FILE *stream) {
+    // Check for invalid parameters
+    if (lineptr == NULL || n == NULL || stream == NULL) {
+        return -1;
+    }
 
-	for (i = 0; i < size; i++)
-		char_newptr[i] = char_ptr[i];
+    // Initialize the buffer and the size if they are NULL or zero
+    if (*lineptr == NULL || *n == 0) {
+        *lineptr = malloc(128); // Allocate an initial buffer of 128 bytes
+        if (*lineptr == NULL) {
+            return -1; // Return -1 if memory allocation fails
+        }
+        *n = 128; // Set the buffer size to 128
+    }
+
+    // Initialize a counter for the number of characters read
+    int count = 0;
+
+    // Loop until a newline character or the end of file is encountered
+    while (1) {
+        // Get the next character from the stream
+        int c = getc(stream);
+
+        // Check for end of file or error
+        if (c == EOF) {
+            // If no characters have been read, return -1
+            if (count == 0) {
+                return -1;
+            }
+            // Otherwise, break the loop and add a null terminator to the buffer
+            else {
+                break;
+            }
+        }
+
+        // Check if the buffer is full and needs to be resized
+        if (count == *n - 1) {
+            // Double the buffer size and reallocate memory
+            *n *= 2;
+            *lineptr = realloc(*lineptr, *n);
+            if (*lineptr == NULL) {
+                return -1; // Return -1 if memory allocation fails
+            }
+        }
+
+        // Store the character in the buffer and increment the counter
+        (*lineptr)[count] = c;
+        count++;
+
+        // Check for newline character and break the loop if found
+        if (c == '\n') {
+            break;
+        }
+    }
+
+    // Add a null terminator to the buffer
+    (*lineptr)[count] = '\0';
+
+    // Return the number of characters read
+    return count;
 }
 
-
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
-{
-	void *newptr;
-
-	if (ptr == NULL)
-		return (malloc(new_size));
-
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-
-	if (new_size == old_size)
-		return (ptr);
-
-	newptr = malloc(new_size);
-	if (newptr == NULL)
-		return (NULL);
-
-	if (new_size < old_size)
-		_memcpy(newptr, ptr, new_size);
-	else
-		_memcpy(newptr, ptr, old_size);
-
-	free(ptr);
-	return (newptr);
-}
-
-
-
-char *_strcpy(char *dest, char *src)
-{
-
-	size_t a;
-
-	for (a = 0; src[a] != '\0'; a++)
-	{
-		dest[a] = src[a];
-	}
-	dest[a] = '\0';
-
-	return (dest);
-}
-
-void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
-{
-
-	if (*lineptr == NULL)
-	{
-		if  (j > BUFSIZE)
-			*n = j;
-
-		else
-			*n = BUFSIZE;
-		*lineptr = buffer;
-	}
-	else if (*n < j)
-	{
-		if (j > BUFSIZE)
-			*n = j;
-		else
-			*n = BUFSIZE;
-		*lineptr = buffer;
-	}
-	else
-	{
-		_strcpy(*lineptr, buffer);
-		free(buffer);
-	}
-}
-/**
- * get_line - Read inpt from stream
- * @lineptr: buffer that stores the input
- * @n: size of lineptr
- * @stream: stream to read from
- * Return: The number of bytes
- */
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
-{
-	int i;
-	static ssize_t input;
-	ssize_t retval;
-	char *buffer;
-	char t = 'z';
-	printf("%s", "$");
-	if (input == 0)
-		fflush(stream);
-	else
-		return (-1);
-	input = 0;
-
-	buffer = malloc(sizeof(char) * BUFSIZE);
-	if (buffer == 0)
-		return (-1);
-	while (t != '\n')
-	{
-		i = read(STDIN_FILENO, &t, 1);
-		if (i == -1 || (i == 0 && input == 0))
-		{
-			free(buffer);
-			return (-1);
-		}
-		if (i == 0 && input != 0)
-		{
-			input++;
-			break;
-		}
-		if (input >= BUFSIZE)
-			buffer = _realloc(buffer, input, input + 1);
-		buffer[input] = t;
-		input++;
-	}
-	buffer[input] = '\0';
-	bring_line(lineptr, n, buffer, input);
-	retval = input;
-	if (i != 0)
-		input = 0;
-	return (retval);
-}
